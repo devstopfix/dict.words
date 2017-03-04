@@ -1,10 +1,10 @@
 (ns dict.words
-  (:require [clojure.string :refer [split-lines lower-case capitalize]]))
+  (:require [clojure.string :refer [lower-case capitalize]]
+            [dict.words.reader :refer [read-lines]]))
 
 (defn- read-words [f]
   (->> f
-       (slurp)
-       (split-lines)
+       (read-lines)
        (map lower-case)
        (into (sorted-set))))
 

@@ -1,10 +1,32 @@
 # dict.words
 
-A Clojure library for working with the words file found on UNIX computers.
+A Clojure library for working with the words file found on UNIX computers from https://clojure.org/[JVM Clojure] or http://planck-repl.org/[Planck].
 
     head /usr/share/dict/words
 
 image:https://travis-ci.org/devstopfix/dict.words.svg?branch=master["Build Status", link="https://travis-ci.org/devstopfix/dict.words"]
+
+## Build with https://leiningen.org/[Leiningen]
+
+[source,bash]
+----
+git clone git@github.com:devstopfix/dict.words.git
+cd dict.words
+lein install
+----
+
+To run from http://planck-repl.org/[Planck REPL] you need to specify the http://planck-repl.org/source-dev.html[classpath to the build]:
+
+[source,bash]
+----
+planck -c ~/.m2/repository/dict/words/dict.words/1.17.63/dict.words-1.17.63.jar
+----
+
+[source,clojure]
+----
+(filter (partial re-find #"^planck") words/words)
+; ("planckian")
+----
 
 ## Usage
 
@@ -29,7 +51,7 @@ To load or reload the words in the REPL:
 
 ### Word length frequencies
 
-[format="csv", options="header"]
+[format="csv", options="header", cols=">,>"]
 |===
 Word length, Count
 1, 26

@@ -4,4 +4,5 @@
 
 (deftest dinosaurs
   (testing "Has Tyrannosaurus"
-    (is (contains? (into #{} words/dinosaurs) "Tyrannosaurus"))))
+    (let [words (into #{} words/dinosaurs)]
+      (is (contains? words "Tyrannosaurus")))))

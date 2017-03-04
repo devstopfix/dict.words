@@ -8,6 +8,13 @@ image:https://travis-ci.org/devstopfix/dict.words.svg?branch=master["Build Statu
 
 ## Usage
 
+To load or reload the words in the REPL:
+
+[source,clojure]
+----
+(require '[dict.words :as words :reload true])
+----
+
 ### Dinosaur names
 
 [source,clojure]

@@ -1,8 +1,6 @@
 (ns dict.words
   (:require [clojure.string :refer [split-lines lower-case capitalize]]))
 
-; (require '[dict.words :as w :reload true])
-
 (defn- read-words [f]
   (->> f
        (slurp)
@@ -12,7 +10,7 @@
 
 (def words
   (-> "/usr/share/dict/words"
-      (read-words-file)
+      (read-words)
       (lazy-seq)))
 
 (def dinosaurs

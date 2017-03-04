@@ -25,6 +25,49 @@ To load or reload the words in the REPL:
 ;=> "Aetosaurus"
 ----
 
+## Statistics
+
+### Word length frequencies
+
+`===
+Word length, Count
+
+1, 26
+2, 139
+3, 1294
+4, 4994
+5, 9972
+6, 17462
+7, 23713
+8, 29842
+9, 32286
+10, 30824
+11, 25963
+12, 20447
+13, 14923
+14, 9761
+15, 5922
+16, 3377
+17, 1813
+18, 842
+19, 428
+20, 198
+21, 82
+22, 41
+23, 17
+24, 5
+`===
+
+[source,clojure]
+----
+(require '[dict.words :as words])
+
+(->> words/words
+     (map count)
+     (frequencies)
+     (sort-by first))
+----
+
 ## License
 
 Copyright © 2017 Devstopfix

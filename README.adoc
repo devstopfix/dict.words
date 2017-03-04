@@ -6,6 +6,18 @@ A Clojure library for working with the words file found on UNIX computers.
 
 image:https://travis-ci.org/devstopfix/dict.words.svg?branch=master["Build Status", link="https://travis-ci.org/devstopfix/dict.words"]
 
+## Usage
+
+### Dinosaur names
+
+[source,clojure]
+----
+(require '[dict.words :as words])
+
+(first words/dinosaurs)
+;=> "Aetosaurus"
+----
+
 ## License
 
 Copyright © 2017 Devstopfix

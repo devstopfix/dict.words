@@ -1,8 +1,10 @@
 # dict.words
 
-A Clojure library for working with the words file.
+A Clojure library for working with the words file found on UNIX computers.
 
     head /usr/share/dict/words
+
+image:https://travis-ci.org/devstopfix/dict.words.svg?branch=master["Build Status", link="https://travis-ci.org/devstopfix/dict.words"]
 
 ## License
 

@@ -29,9 +29,9 @@ To load or reload the words in the REPL:
 
 ### Word length frequencies
 
-`===
+[format="csv", options="header"]
+|===
 Word length, Count
-
 1, 26
 2, 139
 3, 1294
@@ -56,7 +56,7 @@ Word length, Count
 22, 41
 23, 17
 24, 5
-`===
+|===
 
 [source,clojure]
 ----

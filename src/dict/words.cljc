@@ -41,3 +41,8 @@
   (->> words
        (filter (partial re-find #"aurus$"))
        (map clojure.string/capitalize)))
+
+(def domains
+  (->> words
+       (filter (partial re-find #"dom$"))
+       (lazy-seq)))

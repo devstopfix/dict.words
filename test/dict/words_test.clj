@@ -30,3 +30,8 @@
       (is (contains? words "incredible")))
     (testing "Filter other adjectives"
       (is (not (contains? words "heavy"))))))
+
+(deftest domains
+  (testing "-dom suffix"
+      (for [w words/domains]
+        (is (.endsWith w "dom")))))

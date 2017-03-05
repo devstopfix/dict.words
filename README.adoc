@@ -1,6 +1,6 @@
 # dict.words
 
-A Clojure library for working with the words file found on UNIX computers from https://clojure.org/[JVM Clojure] or http://planck-repl.org/[Planck].
+A Clojure library for working with the https://en.wikipedia.org/wiki/Words_(Unix)[words file] found on UNIX computers from https://clojure.org/[JVM Clojure] or http://planck-repl.org/[Planck].
 
     head /usr/share/dict/words
 
@@ -87,6 +87,18 @@ planck -c src/ \
   -e '(doseq [w (sort hex-words)] (println (str "0x" w)))'
 
 $ 0xABBA ...
+----
+
+### Hexadecimal leet
+
+Words with digits that resemble letters:
+
+[source,clojure]
+----
+(require '[dict.words.hex :refer [hex-words-leet]])
+(take 4 (shuffle hex-words-leet))
+
+; ("alf" "1eafed" "be11" "cede")
 ----
 
 ## REPL

@@ -30,9 +30,9 @@
 
 (deftest word-lengths
   (testing "Short words"
-      (is (<= (-> words/short-ascii-words (shuffle) (first) (.length)) 8))))
-  ; (testing "Long words"
-  ;     (is (<= (-> words/short-words (shuffle) (first)) 8))))
+      (is (<= (-> words/short-ascii-words (shuffle) (first) (.length)) 8)))
+  (testing "Long words"
+      (is (>= (-> words/long-words (shuffle) (first) (.length)) 12))))
 
 (deftest adjectives
   (let [words (into #{} words/adjectives)]

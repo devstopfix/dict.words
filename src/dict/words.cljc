@@ -36,6 +36,11 @@
        (filter (size-predicate 8 <=))
        (lazy-seq)))
 
+(def long-words
+  (->> words
+       (filter (size-predicate 12 >=))
+       (lazy-seq)))
+
 (def adjectives
   (->> words
        (filter (partial re-find #"[ai]ble$"))

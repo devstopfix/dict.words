@@ -81,11 +81,12 @@ Print words formed of https://en.wikipedia.org/wiki/Hexadecimal[Hexadecimal] cha
 Or from the command line:
 
 [source,bash]
+----
 planck -c src/ \
   -e "(require '[dict.words.hex :refer [hex-words]])" \
   -e '(doseq [w (sort hex-words)] (println (str "0x" w)))'
 
-; 0xABBA ...
+$ 0xABBA ...
 ----
 
 ## REPL

@@ -10,18 +10,29 @@
        (reverse)
        (lazy-seq)))
 
-; MAC Addresses - https://en.wikipedia.org/wiki/MAC_address
 
 (defn- swap-letter-digit [x d]
   (fn [s] (clojure.string/replace s x d)))
 
 (def hex-words-leet
-  "List of words with some digits as letters.
+  "List of lowercase words with some digits as letters.
    See https://simple.wikipedia.org/wiki/Leet#Numbers_for_letters"
   (->> words/words
        (map (swap-letter-digit "l" "1"))
        (filter (partial re-find #"^[a-f1]{3,}$"))
        (lazy-seq)))
+
+(def hex-words-leet-upcase
+  "List of uppervase words with some digits as letters.
+   See https://simple.wikipedia.org/wiki/Leet#Numbers_for_letters"
+  (->> words/words
+       (map clojure.string/upper-case)
+       (map (swap-letter-digit "L" "1"))
+       (map (swap-letter-digit "S" "5"))
+       (filter (partial re-find #"^[A-F15]{3,}$"))
+       (lazy-seq)))
+
+; MAC Addresses - https://en.wikipedia.org/wiki/MAC_address
 
 (defn- byte-pairs [s]
   "Convert a string of 00112233... to 00-11-22-33"

@@ -89,9 +89,9 @@ planck -c src/ \
 $ 0xABBA ...
 ----
 
-### Hexadecimal leet
+### Hexadecimal Leet
 
-Words with digits that resemble letters:
+Words with https://simple.wikipedia.org/wiki/Leet#Numbers_for_letters[digits that resemble letters]:
 
 [source,clojure]
 ----
@@ -100,6 +100,17 @@ Words with digits that resemble letters:
 
 ; ("alf" "1eafed" "be11" "cede")
 ----
+
+Uppercase:
+
+[source,clojure]
+----
+(require '[dict.words.hex :refer [hex-words-leet]])
+(take 4 (shuffle hex-words-leet-upcase))
+
+; ("ACCE55" "ADD" "C1A55" "E5CA1ADE")
+----
+
 
 ## REPL
 

@@ -14,4 +14,10 @@
       (testing "With accute"
         (is (or
               (contains? words "éclair")
-              (contains? words "eclair"))))))
+              (contains? words "eclair"))))
+      (testing "Without 1 letter words"
+        (is (not (contains? words "a"))))
+      (testing "Without 2 letter words"
+        (is (not (contains? words "be"))))
+      (testing "Planck"
+        (is (= ["planckian"] (filter (partial re-find #"^planck") words/words))))))

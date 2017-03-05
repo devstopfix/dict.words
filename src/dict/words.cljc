@@ -10,10 +10,18 @@
 
 (def possesive? (partial re-find #"'"))
 
+(defn size-predicate [n p]
+  "Create a predicate using function p, and length n.
+   e.g. Words of lenth 2 (== 2) ->  (== (count w) n)"
+  (fn [w] (p (count w) n)))
+
+(def tiny-word? (size-predicate 2 <=))
+
 (def words
   "Seq of words without possesives. Ubuntu wbritish package has words such as éclair and soirée's"
   (->> "/usr/share/dict/words"
        (read-words)
+       (remove tiny-word?)
        (remove possesive?)
        (lazy-seq)))
 

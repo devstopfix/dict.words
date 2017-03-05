@@ -21,3 +21,12 @@
         (is (not (contains? words "be"))))
       (testing "Planck"
         (is (= ["planckian"] (filter (partial re-find #"^planck") words/words))))))
+
+(deftest adjectives
+  (let [words (into #{} words/adjectives)]
+    (testing "Subset"
+      (is (< (count words/adjectives) (count words/words))))
+    (testing "-ible adjectives"
+      (is (contains? words "incredible")))
+    (testing "Filter other adjectives"
+      (is (not (contains? words "heavy"))))))

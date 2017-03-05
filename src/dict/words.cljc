@@ -31,6 +31,11 @@
        (filter (partial re-matches #"^[a-z]+$"))
        (lazy-seq)))
 
+(def adjectives
+  (->> words
+       (filter (partial re-find #"[ai]ble$"))
+       (lazy-seq)))
+
 (def dinosaurs
   "Dinosaur names"
   (->> words

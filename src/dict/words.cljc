@@ -31,6 +31,11 @@
        (filter (partial re-matches #"^[a-z]+$"))
        (lazy-seq)))
 
+(def short-ascii-words
+  (->> ascii-words
+       (filter (size-predicate 8 <=))
+       (lazy-seq)))
+
 (def adjectives
   (->> words
        (filter (partial re-find #"[ai]ble$"))

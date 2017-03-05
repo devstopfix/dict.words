@@ -28,6 +28,12 @@
     (testing "Without French words"
       (is (empty? (filter (partial re-find #"é") words))))))
 
+(deftest word-lengths
+  (testing "Short words"
+      (is (<= (-> words/short-ascii-words (shuffle) (first) (.length)) 8))))
+  ; (testing "Long words"
+  ;     (is (<= (-> words/short-words (shuffle) (first)) 8))))
+
 (deftest adjectives
   (let [words (into #{} words/adjectives)]
     (testing "Subset"

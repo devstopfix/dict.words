@@ -19,7 +19,7 @@
   "List of words with some digits as letters"
   (->> words/words
        (map (swap-letter-digit "l" "1"))
-       (filter #(re-find #"^[a-f1]{3,}$" %))))
+       (filter (partial re-find #"^[a-f1]{3,}$"))))
 
 (defn byte-pairs [s]
   "Convert a string of 00112233... to 00-11-22-33"

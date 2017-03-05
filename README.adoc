@@ -6,6 +6,8 @@ A Clojure library for working with the words file found on UNIX computers from h
 
 image:https://travis-ci.org/devstopfix/dict.words.svg?branch=master["Build Status", link="https://travis-ci.org/devstopfix/dict.words"]
 
+# Build
+
 ## Build with https://leiningen.org/[Leiningen]
 
 [source,bash]
@@ -28,16 +30,34 @@ planck -c ~/.m2/repository/dict/words/dict.words/1.17.63/dict.words-1.17.63.jar
 ; ("planckian")
 ----
 
-## Usage
+## Planck on Ubuntu
 
-To load or reload the words in the REPL:
+[source,bash]
+----
+sudo add-apt-repository ppa:mfikes/planck
+sudo apt-get update
+
+sudo apt-get install wget unzip planck wbritish wamerican
+
+wget https://github.com/devstopfix/dict.words/archive/master.zip
+unzip master
+planck -c dict.words-master/src/
+----
+
+
+# Usage
+
+## Words
+
+The OSX dictionary is ASCII only, while Ubuntu wbritish contains French accents. Lazy seqs are provided of raw words and ASCII only:
 
 [source,clojure]
 ----
-(require '[dict.words :as words :reload true])
+(map last [words/words words/ascii-words])
+; ("études" "zyzzogeton")
 ----
 
-### Dinosaur names
+## Dinosaur names
 
 [source,clojure]
 ----
@@ -45,6 +65,15 @@ To load or reload the words in the REPL:
 
 (first words/dinosaurs)
 ;=> "Aetosaurus"
+----
+
+## REPL
+
+To load or reload the words in the REPL:
+
+[source,clojure]
+----
+(require '[dict.words :as words :reload true])
 ----
 
 ## Statistics

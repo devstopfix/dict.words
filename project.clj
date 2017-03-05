@@ -1,4 +1,4 @@
-(defproject dict.words "1.17.63"
+(defproject dict.words "1.17.64"
   :description "Clojure functions on the words file installed in OSX and Ubuntu"
   :url "https://github.com/devstopfix/dict.words"
   :license {:name "Eclipse Public License"

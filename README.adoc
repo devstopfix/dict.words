@@ -105,7 +105,7 @@ Uppercase:
 
 [source,clojure]
 ----
-(require '[dict.words.hex :refer [hex-words-leet]])
+(require '[dict.words.hex :refer [hex-words-leet-upcase]])
 (take 4 (shuffle hex-words-leet-upcase))
 
 ; ("ACCE55" "ADD" "C1A55" "E5CA1ADE")

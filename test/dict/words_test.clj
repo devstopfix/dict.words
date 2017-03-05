@@ -20,7 +20,8 @@
       (testing "Without 2 letter words"
         (is (not (contains? words "be"))))
       (testing "Planck"
-        (is (= ["planckian"] (filter (partial re-find #"^planck") words/words))))))
+        (let [ws (filter (partial re-find #"^planck") words/words)]
+          (is (contains? #{"planckian" "planck"} (first ws) ))))))
 
 (deftest adjectives
   (let [words (into #{} words/adjectives)]

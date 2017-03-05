@@ -4,7 +4,7 @@
 (def hex-words
   "List of words formed of hexadecimal characters"
   (->> words/words
-       (filter #(re-find #"^[a-f]{2,}$" %))
+       (filter (partial re-find #"^[a-f]{2,}$"))
        (map clojure.string/upper-case)
        (sort-by count)
        (reverse)

@@ -23,6 +23,11 @@
         (let [ws (filter (partial re-find #"^planck") words/words)]
           (is (contains? #{"planckian" "planck"} (first ws) ))))))
 
+(deftest ascii-words
+  (let [words (into #{} words/ascii-words)]
+    (testing "Without French words"
+      (is (empty? (filter (partial re-find #"é") words))))))
+
 (deftest adjectives
   (let [words (into #{} words/adjectives)]
     (testing "Subset"

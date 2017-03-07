@@ -111,6 +111,16 @@ Uppercase:
 ; ("ACCE55" "ADD" "C1A55" "E5CA1ADE")
 ----
 
+Mac addresses:
+
+[source,clojure]
+----
+(require '[dict.words.hex :refer [mac-addresses]])
+(->> mac-addresses (shuffle) (take 3))
+
+; ("fa-ca-de-fa-ff-1e "fa-ca-de-ba-ff-1e" "fa-ca-de-da-bb-1e")
+----
+
 
 ## REPL
 
